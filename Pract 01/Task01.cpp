@@ -5,7 +5,13 @@
 int main()
 {
 	//std::cout << "Hello, FMI ";
-
+	/*
+	Theoritical questions:
+	1. Output: 10
+	2. Output: 14.5
+	3. Output: 14.5
+	Why? Since the expression is evaluated from left to right, it won't change.
+	*/
 
 	short sideA = 10;
 	short sideB = 7;
