@@ -23,7 +23,7 @@ int main()
 	float areaOfTriangle = sqrt(semiPerimeter * (semiPerimeter - sideA)
 		* (semiPerimeter - sideB) * (semiPerimeter - sideC));
 
-	std::cout << "The perimeter of the triangle is: " << perimeterOfTriangle << '\n';
+	std::cout << "The perimeter of the triangle is: " << perimeterOfTriangle << "\n";
 	std::cout << "The area of the triangle is: " << areaOfTriangle;
 }
 
