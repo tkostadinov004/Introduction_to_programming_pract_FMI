@@ -7,7 +7,7 @@ int main()
 		<< std::endl << std::endl;
 
 	//1
-	double triangleA, triangleB, triangleC;
+	double triangleA, triangleB, triangleC, semiparameter;
 	std::cin >> triangleA >> triangleB >> triangleC;
 
 	if (triangleA + triangleB <= triangleC
@@ -17,7 +17,10 @@ int main()
 		throw std::invalid_argument("Invalid triangle");
 	}
 
-	std::cout << triangleA + triangleB + triangleC
+	semiparameter = (triangleA + triangleB + triangleC) / 2;
+
+	std::cout << "Perimeter: " << 2 * semiparameter
+		<< "\nArea: " << sqrt(semiparameter * (semiparameter - triangleA) * (semiparameter - triangleB) * (semiparameter - triangleC))
 		<< std::endl << std::endl;
 
 	//2
