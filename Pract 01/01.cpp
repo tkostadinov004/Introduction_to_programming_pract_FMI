@@ -29,10 +29,10 @@ int main()
 	std::cout << "Kelvin: " << celsius + 273.15 << "\nFahrenheit: " << celsius * 9 / 5 + 32 << std::endl << std::endl;
 
 	//3
-	std::string a, b, temp;
+	int a, b;
 	std::cin >> a >> b;
 
-	temp = a;
+	int temp = a;
 	a = b;
 	b = temp;
 
