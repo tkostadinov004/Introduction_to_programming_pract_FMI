@@ -8,6 +8,6 @@ int main()
 	std::cout << "Enter second interval [c; d]: " << "\n";
 	std::cin >> c >> d;
 
-	std::cout << ((b < c || d < a) ? 0 : 1);
+	std::cout << !(b < c || d < a) ;
 }
 
