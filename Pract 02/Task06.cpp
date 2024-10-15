@@ -8,11 +8,11 @@ int main()
    
     //since the amount has no set boundaries int and double are prefered:
     int cheeseburgerAmount, fishMenuAmount, chickenWingsAmount;
-    double currentPrice = 0;
+    
     std::cout << "Enter the amount of wanted products: ";
     std::cin >> cheeseburgerAmount >> fishMenuAmount >> chickenWingsAmount;
 
-    currentPrice = cheeseburger * cheeseburgerAmount + fishMenu * fishMenuAmount 
+    double currentPrice = cheeseburger * cheeseburgerAmount + fishMenu * fishMenuAmount 
         + chickenWings * chickenWingsAmount; 
     
     //didn't quite catch if the price should be > or >= 60
