@@ -57,13 +57,13 @@ int main()
     int number = 2;
     
     if (number < 2)
-        cout << "first";
+        std::cout << "first";
     else if (number = 0)
-        cout << "second";
+        std::cout << "second";
     else if (number >= 2)
-        cout << "third";
+        std::cout << "third";
     else
-        cout << "unknown";
+        std::cout << "unknown";
 }
 ```
 ## Задачи
