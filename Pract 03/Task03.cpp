@@ -5,13 +5,13 @@ int main()
     char symbol;
     std::cin >> symbol;
 
-    if ('`' < symbol && symbol < '{') {
+    if ('a' <= symbol && symbol <= 'z') {
         std::cout << "lowercase letter";
     }
-    else if ('@' < symbol && symbol < '[') {
+    else if ('A' <= symbol && symbol <= 'Z') {
         std::cout << "uppercase letter";
     }
-    else if ('/' < symbol && symbol < ':') {
+    else if ('0' <= symbol && symbol <= '9') {
         std::cout << "digit";
     }
     else {
