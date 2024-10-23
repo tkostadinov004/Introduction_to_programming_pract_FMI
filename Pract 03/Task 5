@@ -1,0 +1,19 @@
+#include <iostream>
+
+int main() 
+
+{
+	int a1, a2, a3, a4, a5;
+	std::cin >> a1 >> a2 >> a3 >> a4 >> a5;
+	if (((a2 >= a1 && a2 >= a3) || (a2 <= a1 && a2 <= a3)) &&
+		((a3 >= a2 && a3 >= a4) || (a3 <= a2 && a3 <= a4)) &&
+		((a4 >= a3 && a4 >= a5) || (a4 <= a3 && a4 <= a5)))
+	{
+		std::cout << "yes";
+	}
+	else 
+	{
+		std::cout << "no";
+	}
+}
+
