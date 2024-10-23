@@ -1,0 +1,18 @@
+#include  <iostream>
+
+int main()
+{
+	double a, b;
+	char operation;
+	std::cin >> a >> b >> operation;
+	switch (operation) 
+	{
+	case '+':  std::cout << (a + b); break;
+	case '-':  std::cout << (a - b); break;
+	case '*':  std::cout << (a * b); break;
+	case '/':  std::cout << (a / b); break;
+	
+		default: std::cout << "Error";
+	}	
+
+}
