@@ -1,0 +1,22 @@
+#include <iostream>
+
+int main()
+{
+	char symbol;
+	std::cout << "Enter a character";
+	std::cin >> symbol;
+	if (symbol >= 'a' && symbol <= 'z') {
+		std::cout << "lowercase letter" << std::endl;
+	} 
+	else if (symbol >= 'A' && symbol <= 'Z') {
+		std::cout << "uppercase letter" << std::endl;
+	}
+	 else if (symbol >= '0' && symbol <= '9') {
+
+		std::cout << "digit" << std::endl;
+	}
+	  else  {
+		std::cout << "Other" << std::endl;
+	}
+
+	}
