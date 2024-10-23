@@ -28,8 +28,8 @@
 3. Create a pull request
 </br>
 
-![PR](https://cdn.discordapp.com/attachments/1000494121326219364/1290757199420719164/image.png?ex=66fd9ed1&is=66fc4d51&hm=ff07df39426856b8edf489b6dc26460a30db0f45fcc6e9d631b13810ac3f9bb6&)
-![PR](https://cdn.discordapp.com/attachments/1000494121326219364/1290757439683301447/image.png?ex=66fd9f0a&is=66fc4d8a&hm=caedff0c5ea4d8e54d85931c9557fc0d4fc0e41e5da2d6f1d7239d1fd05603cc&)
+![Pull request](https://cdn.discordapp.com/attachments/1000494121326219364/1290757199420719164/image.png?ex=66fd9ed1&is=66fc4d51&hm=ff07df39426856b8edf489b6dc26460a30db0f45fcc6e9d631b13810ac3f9bb6&)
+![Pull request](https://cdn.discordapp.com/attachments/1000494121326219364/1290757439683301447/image.png?ex=66fd9f0a&is=66fc4d8a&hm=caedff0c5ea4d8e54d85931c9557fc0d4fc0e41e5da2d6f1d7239d1fd05603cc&)
 ### Important!
 The title of the pull request should be: 
 ```c++
@@ -50,4 +50,4 @@ Example:
 Ivan Ivanov
 4
 ```
-![PR](https://cdn.discordapp.com/attachments/1000494121326219364/1290757818634211398/image.png?ex=66fd9f65&is=66fc4de5&hm=723d73031f130285a618749de9a52b91e3a8cee063de804a3f17c5a69fad9d02&)
+![Pull request](https://cdn.discordapp.com/attachments/1000494121326219364/1290757818634211398/image.png?ex=66fd9f65&is=66fc4de5&hm=723d73031f130285a618749de9a52b91e3a8cee063de804a3f17c5a69fad9d02&)
