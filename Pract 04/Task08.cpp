@@ -9,17 +9,21 @@ int main()
     } 
     while (positiveNumber < 2 );
     int maxNumber = 0;
+    // Maximum value for a 32-bit signed int
     int secondMaxNumber = 0;
     for (int i = 0; i < positiveNumber; i++) {
         int number;
         std::cout << "Enter a number: ";
         std::cin >> number;
         if (number > maxNumber) {
+            secondMaxNumber = maxNumber;
             maxNumber = number;
+            
         }
-        if (number > secondMaxNumber && number < maxNumber) {
+        else if (number > secondMaxNumber && number < maxNumber) {
             secondMaxNumber = number;
         }
+        
     }
     std::cout << maxNumber << " ";
     std::cout << secondMaxNumber;
