@@ -18,15 +18,16 @@ int main()
 
 		if (currentNumber > maxNumber) {
 
-			secondMaxNumber = maxNumber;
-			maxNumber = currentNumber;
+                     secondMaxNumber = maxNumber;
+		     maxNumber=currentNumber;
 
+		} else if (currentNumber< maxNumber && currentNumber > secondMaxNumber){
+		    secondMaxNumber = currentNumber;
 		}
 
 		number--;
 	}
 
 	std::cout << "Max number: " << maxNumber << std::endl << "Second max number: " << secondMaxNumber;
-
 
 }
