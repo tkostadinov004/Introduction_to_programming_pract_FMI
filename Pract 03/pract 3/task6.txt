@@ -1,0 +1,19 @@
+#include <iostream>
+int main()
+{
+	int a, b, c;
+	//c^2 = a^2 + b^2
+	std::cin >> a;
+	std::cin >> b;
+	std::cin >> c;
+	double pythogoreanTheorem = (a * a) + (b * b);
+	double cSquared = c * c;
+	if (pythogoreanTheorem==cSquared) {
+		std::cout << "On the circle";
+	}
+	else if (pythogoreanTheorem>cSquared) {
+		std::cout << "Outside the circle";
+	}
+	else
+		std::cout << "Inside the circle";
+}

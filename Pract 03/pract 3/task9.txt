@@ -1,0 +1,27 @@
+#include <iostream>
+int main()
+{
+	int q, m, year, K, J;
+	std::cin >> q;
+	std::cin >> m;
+	std::cin >> year;
+	K = year % 100;
+	J = year / 100;
+	std::cout << "day q = " << q << std::endl;
+	std::cout << "month m = " << m <<std::endl;
+	std::cout << "year = " << year<<std::endl;
+	std::cout << "last two digits K = " << K<<std::endl;
+	std::cout << "first two digits J = " << J<<std::endl;
+
+	int h = (q + ((13 * (m + 1)) / 5) + K + (K / 4) + (J / 4) - (2 * J)) ;
+	//int h = q + ((13 * m - 1) / 5) + K + (K / 4) + (J / 4) - 2 * J;
+	switch (h%7) {
+	case 0:	std::cout << "Sunday"; break;
+	case 1:	std::cout << "Monday"; break;
+	case 2:	std::cout << "Tuesday"; break;
+	case 3:	std::cout << "Wednesday"; break;
+	case 4:	std::cout << "Thursday"; break;
+	case 5:	std::cout << "Friday"; break;
+	case 6:	std::cout << "Saturday"; break;
+	}
+}

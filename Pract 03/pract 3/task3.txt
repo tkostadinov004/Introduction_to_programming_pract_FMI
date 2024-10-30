@@ -1,0 +1,17 @@
+#include <iostream>
+int main()
+{
+	char a;
+	std::cin >> a;
+	if (a > '0' && a < '10') {
+		std::cout << "digit";
+	}
+	else if (a >= 'A' && a <= 'Z') {
+		std::cout << "uppercase letter";
+	}
+	else if (a >= 'a' && a <= 'z') {
+		std::cout << "lowercase letter";
+	}
+	else
+		std::cout << "other";
+}

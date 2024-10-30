@@ -1,0 +1,27 @@
+#include <iostream>
+int main()
+{
+	int a, b;
+	std::cin >> a;
+	std::cin >> b;
+	int addedFifteen = b + 15;
+	int leftover;
+	if (addedFifteen>60) {
+		leftover = addedFifteen/60;
+		a += leftover;
+		b = addedFifteen - leftover * 60;
+		if (a >= 24) {
+			a %= 24;
+			std::cout << a << "\t" << b;
+		}else
+			std::cout << a <<"\t" << b;
+	}
+	else {
+		if (a >= 24) {
+			a %= 24;
+			std::cout << a << "\t" << addedFifteen;
+		}
+		else 
+			std::cout << a << "\t" << addedFifteen;
+	}
+}
