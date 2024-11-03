@@ -24,7 +24,7 @@ bool isAlnum(char symbol) {
 char capitalize(char symbol) {
 
 	if (isLower(symbol)) {
-		return symbol - 32;
+		return 'A' + symbol - 'a';
 	}
 
 	return symbol;
@@ -33,7 +33,7 @@ char capitalize(char symbol) {
 char makeLower(char symbol) {
 
 	if (isUpper(symbol)) {
-		return symbol + 32;
+		return  'a' + symbol - 'A';
 	}
 
 	return symbol;
@@ -41,26 +41,8 @@ char makeLower(char symbol) {
 
 int parseInt(char symbol) {
 
-	switch (symbol) {
-
-	case '1':
-		return 1;
-	case '2':
-		return 2;
-	case '3':
-		return 3;
-	case '4':
-		return 4;
-	case '5':
-		return 5;
-	case '6':
-		return 6;
-	case '7':
-		return 7;
-	case '8':
-		return 8;
-	case '9':
-		return 9;
+	if (symbol >= '0' && symbol <= '9') {
+		return symbol - '0';
 	}
 
 	return -1;
@@ -119,17 +101,13 @@ double myAbs(double number) {
 
 int myCeil(double number) {
 
-	int num = number;
-
-	return num + 1;
+	return number + 1;
 
 }
 
 int myFloor(double number) {
 
-	int num = number;
-
-	return num;
+	return number;
 
 }
 

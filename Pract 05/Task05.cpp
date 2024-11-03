@@ -1,40 +1,51 @@
 #include <iostream>
 
-long long concatenatedNumbers(long num1, long num2) {
+long reverseNumber(long number, long reversedNumber) {
 
-	int reversedNumber = 0;
+	while (number > 0) {
+		reversedNumber *= 10;
+		reversedNumber += number % 10;
+
+		number /= 10;
+	}
+
+	return reversedNumber;
+}
+
+int countZeros(long number) {
+
 	int countZeros = 0;
 
-	while (num2 > 0) {
-
-		if (num2 % 10 != 0) {
-
-			reversedNumber *= 10;
-			reversedNumber += num2 % 10;
-
-		}
-		else {
+	while (number > 0) {
+		if (number % 10 == 0) {
 			countZeros++;
 		}
-
-		num2 /= 10;
-
+		number /= 10;
 	}
+
+	return countZeros;
+}
+
+long addZerosToNumber(long number, int countZeros) {
+
+	while (countZeros > 0) {
+		number *= 10;
+		countZeros--;
+	}
+
+	return number;
+}
+
+long long concatenateNumbers(long num1, long num2) {
+
+	long reversedNumber = reverseNumber(num2, 0);
+	int zeros = countZeros(num2);
 
 	long concatenatedNumber = num1;
 
-	while (reversedNumber > 0) {
+	concatenatedNumber = reverseNumber(reversedNumber, concatenatedNumber);
 
-		concatenatedNumber *= 10;
-		concatenatedNumber += reversedNumber % 10;
-
-		reversedNumber /= 10;
-	}
-
-	while (countZeros > 0) {
-		concatenatedNumber *= 10;
-		countZeros--;
-	}
+	concatenatedNumber = addZerosToNumber(concatenatedNumber, zeros);
 
 	return concatenatedNumber;
 
@@ -48,5 +59,5 @@ int main()
 
 	std::cin >> num1 >> num2;
 
-	std::cout << concatenatedNumbers(num1, num2);
+	std::cout << concatenateNumbers(num1, num2);
 }
