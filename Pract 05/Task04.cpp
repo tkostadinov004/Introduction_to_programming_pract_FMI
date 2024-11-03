@@ -16,15 +16,9 @@ int reversedNumber(unsigned int number) {
 
 }
 
-void isPalindrome(int number) {
+bool isPalindrome(int number) {
 
-	if (number == reversedNumber(number)) {
-
-		std::cout << "It's a palindrome";
-	}
-	else {
-		std::cout << "It's not a palindrome";
-	}
+	return number == reversedNumber(number);
 
 }
 
@@ -35,6 +29,12 @@ int main()
 
 	std::cin >> number;
 
-	isPalindrome(number);
+	if (isPalindrome(number)) {
+
+		std::cout << "It's a palindrome";
+	}
+	else {
+		std::cout << "It's not a palindrome";
+	}
 
 }
