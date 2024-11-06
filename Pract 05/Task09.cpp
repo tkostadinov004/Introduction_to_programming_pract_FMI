@@ -7,23 +7,34 @@ unsigned long long checkNum() {
     } while (num < 0);
     return num;
 }
-void sortNumber(unsigned long long num) {
-    unsigned long long newNum = 0;
+int countDigits(int divider, unsigned long long num, unsigned long long newNumber) {
+    while (num > 0) {
+        if (num % 10 == divider) {
+            newNumber = newNumber * 10 + divider;
+        }
+        num /= 10;
+    }
+    return newNumber;
+}
+int findNewNumber(unsigned long long num, unsigned long long newNumber) {
+    unsigned long long newSum = 0;
     for (int i = 9; i >= 0; i--) {
-        unsigned long long duplicateNum = num;
-        while (duplicateNum > 0) {
-            if (duplicateNum % 10 == i) {
-                newNum = newNum * 10 + i;
-            }
-            duplicateNum /= 10;
+        //for each num new function
+        unsigned long long currentBiggestNum = countDigits(i, num, newNumber);
+        //if function does not return 0 and i  is not 0
+        if (currentBiggestNum != 0 && i != 0) {
+            newSum = newSum * 10 + currentBiggestNum;
+        }
+        //if function returns 0, but it's zero's turn
+        else if(currentBiggestNum == 0 && i == 0){
+            newSum = newSum * 10 + currentBiggestNum;
         }
     }
-    //NOTE: didnt know if num is 089; how to output 980
-    std::cout << newNum;
+    return newSum;
 }
 int main()
 {
     unsigned long long num = checkNum();
-    sortNumber(num);
+    unsigned long long newNumber = 0;
+    std::cout << findNewNumber(num, newNumber);
 }
-
