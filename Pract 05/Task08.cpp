@@ -9,12 +9,13 @@ int validNumbers() {
     //returns one of the numbers it does not matter
     return n;
 }
+
 int removePartOfNumber(int num) {
-    int duplicate = num;
-    int digits = duplicate % 100;
-    duplicate = (duplicate - duplicate % 1000) / 10 + digits;
-    return duplicate;
+    int digits = num % 100;
+    num = (num - num % 1000) / 10 + digits;
+    return num;
 }
+
 void checkInterval(int m, int n) {
 
     for (int num = m; num <= n; num++) {
