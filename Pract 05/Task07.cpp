@@ -24,12 +24,12 @@ bool ascOrd(int num) {
     return true;
 }
 
-bool getRes(int num) {
+bool returnIfSortedAscOrDesc(int num) {
     return ascOrd(num) || descOrd(num);
 }
 
 int main() {
     int num;
     std::cin >> num;
-    std::cout << std::boolalpha << getRes(num);
+    std::cout << std::boolalpha << returnIfSortedAscOrDesc(num);
 }
