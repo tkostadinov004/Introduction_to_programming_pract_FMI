@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 
 bool isDigit(char symbol) {
     return '0' <= symbol && symbol <= '9';
@@ -30,25 +29,29 @@ char makeLower(char symbol) {
 }
 
 int parseInt(char symbol) {
-    return isDigit(symbol) ? symbol : -1;
+    return isDigit(symbol) ? symbol - '0' : -1;
 }
 
 char toChar(int symbol) {
     return 0 <= symbol && symbol <= 9 ? symbol : '\0';
 }
 
- int myLog(int symbol) {
-    return log(symbol);
+int myAbs(double symbol) {
+    return symbol < 0 ? -symbol : symbol;
 }
 
-int myPow(int num, int power) {
-    int res = num;
+double myPow(double num, int power) {
+    if (power == 0) {
+        return 1;
+    }
+    
+    double res = num;
 
-    for (int i = 1; i < power; i++) {
+    for (int i = 1; i < myAbs(power); i++) {
         res *= num;
     }
-
-    return res;
+    
+    return power < 0 ? 1 / res : res;
 }
 
 int myCeil(double symbol) {
@@ -59,11 +62,7 @@ int myFloor(double symbol) {
     return symbol;
 }
 
-int myAbs(double symbol) {
-    return fabs(symbol);
-}
-
 int main()
 {
-    
+
 }
