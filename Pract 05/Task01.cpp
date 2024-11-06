@@ -22,17 +22,20 @@ bool isAlnum(char character) {
     
     return isAlpha(character) || (character >= '0' && character <= '9');
 }
+//fixed?
 char capitalize(char character) {
     
-    return isAlpha(character) ? character - 32 : character;
+    return isAlpha(character) && isLower(character) ? character - ('a' - 'A') : character;
 }
+//fixed?
 char makeLower(char character) {
     
-    return isAlpha(character) ? character + 32 : character;
+    return isAlpha(character) && isUpper(character) ? character + ('a' - 'A') : character;
 }
+//fixed?
 int parseInt(char character) {
 
-    return isAlnum(character) && !isAlpha(character) ? character - 48 : -1;
+    return isAlnum(character) && !isAlpha(character) ? character - '0' : -1;
 }
 char toChar(int n) {
 
@@ -66,11 +69,16 @@ double myPow(int n, int power) {
     }
     return f;
 }
-int myCeil(int n2) {
-    return n2 + 1;
+//fixed?
+double myCeil(double n2) {
+    int n = n2;
+    return n == n2 ? n : n + 1;
 }
+//fixed?
 int myFloor(double n2) {
-    return n2;
+    //turn to int
+    int newNum = n2 / 1.0;
+    return newNum > 0? newNum : newNum - 1;
 }
 int myAbs(int n) {
     return n >= 0 ? n : -1 * n;
@@ -109,6 +117,7 @@ int main()
     //std::cout << std::boolalpha << isAlpha(character) << std::endl;
     //std::cout << std::boolalpha << isAlnum(character)<< std::endl;
     //std::cout << capitalize(character) << std::endl;
+    //std::cout << makeLower(character) << std::endl;
     //std::cout << parseInt(character) << std::endl;
     //std::cout << toChar(n) << std::endl;
     //std::cout << myLog(n, base) << std::endl;
