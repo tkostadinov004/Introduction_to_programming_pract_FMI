@@ -26,7 +26,6 @@ int reverseNumber(int num) {
     return reverse;
 }
 int concatReverse(int num){
-    int numDupl = num;
     return (reverseNumber(num) * multiplierNumber(1, num) + num);
 
 }
