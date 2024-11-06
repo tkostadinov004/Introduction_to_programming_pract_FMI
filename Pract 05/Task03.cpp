@@ -7,10 +7,7 @@ bool isSpecialNumber(int number) {
             sum += i;
         }
     }
-    if (sum  == number) {
-        return 1;
-    }
-    return 0;
+    return sum == number;
 
 }
 int main()
