@@ -12,16 +12,6 @@ int countOccurrences(int num, int digit) {
     return counter;
 }
 
-int countDigits(int num) {
-    int counter = 0;
-    while (num) {
-        counter++;
-        num /= 10;
-    }
-
-    return counter;
-}
-
 int modifyNum(int num, int digits, int expansion) {
     int digit = num;
     for (int i = 0; i < digits; i++) {
@@ -32,19 +22,19 @@ int modifyNum(int num, int digits, int expansion) {
     return num;
 }
 
-void expandNum(int& res, int digit, int count) {
-    for (int j = 0; j < count; j++) {
+int expandNum(int res, int digit, int count) {
+    for (int i = 0; i < count; i++) {
         res = res * 10 + digit;
     }
+    return res;
 }
 
 int sortNumDescOrd(int num) {
-    int res = 0;  
-    int digit_count = countDigits(num); 
-    for (int i = 9; i >= 0; i--) { 
-        int count_occuences = countOccurrences(num, i); 
+    int res = 0;
+    for (int i = 9; i >= 0; i--) {
+        int count_occuences = countOccurrences(num, i);
         if (count_occuences > 0) {
-            expandNum(res, i, count_occuences);
+            res = expandNum(res, i, count_occuences);
         }
     }
 
@@ -52,8 +42,7 @@ int sortNumDescOrd(int num) {
 }
 
 int main() {
-    int num, sorted;
-    std::cin >> num;  
-    sorted = sortNumDescOrd(num); 
-    std::cout << sorted;  
+    int num;
+    std::cin >> num;
+    std::cout << sortNumDescOrd(num);
 }
