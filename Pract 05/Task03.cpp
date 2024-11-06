@@ -5,7 +5,7 @@ bool isPerfect(int num) {
     for (int i = 1; i < num; i++) {
         num % i == 0 ? sum += i : num;
     }
-    return num != 0 ? sum == num : false;
+    return sum == num;
 }
 
 int main() {
