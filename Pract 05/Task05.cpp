@@ -1,6 +1,7 @@
 #include <iostream>
 int numCheck(){
     int num;
+    std::cout << "Enter numbers: ";
     do {
         std::cin >> num;
     } while (num < 0);
