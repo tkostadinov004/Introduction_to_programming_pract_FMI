@@ -40,6 +40,20 @@ int myAbs(double symbol) {
     return symbol < 0 ? -symbol : symbol;
 }
 
+int myLog(int base, int num) {
+    if (num <= 0 || base <= 1) {
+        return -1;  
+    }
+
+    int res = 0;
+    while (num >= base) {
+        num /= base;  
+        res++;     
+    }
+
+    return res;
+}
+
 double myPow(double num, int power) {
     if (power == 0) {
         return 1;
