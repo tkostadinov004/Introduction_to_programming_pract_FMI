@@ -1,12 +1,11 @@
 #include <iostream>
-int num1, num2;
 int numCheck(){
+    int num;
     do {
         std::cout << "Enter two positive numbers: ";
-        std::cin >> num1 >> num2;
-    } while (num1 < 0 || num2 < 0);
-    //returns one of the numbers it does not matter
-    return num2;
+        std::cin >> num;
+    } while (num < 0);
+    return num;
 }
 int concatNums(int num1, int num2) {
     int duplNum2 = num2;
@@ -19,7 +18,8 @@ int concatNums(int num1, int num2) {
 }
 int main()
 {
-    numCheck();
+    int num1 = numCheck();
+    int num2 = numCheck();
     //find the lenght of num1 and add on    
     std::cout << concatNums(num1, num2);
 }
