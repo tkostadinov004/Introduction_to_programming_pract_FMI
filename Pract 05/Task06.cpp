@@ -7,26 +7,27 @@ int checkNum() {
     } while (num < 0);
     return num;
 }
-int concatReverse(int num){
+//will help with the cases of zeros
+int multiplierNumber(int multiplier, int num) {
+    while (num > 0) {
+        num /= 10;
+        multiplier *= 10;
+    }
+    return multiplier;
+}
+
+int reverseNumber(int num) {
     int reverse = 0;
-    int numDupl = num;
-    //will help with the cases of zeros
-    int multiplier = 1; 
-    // count the digits
-    while (numDupl > 0) {
-        numDupl /= 10; 
-        multiplier *= 10; 
-    }
-
-    // reuse the numDupl variable
-    numDupl = num;
-    while (numDupl > 0) {
-        int digit = numDupl % 10;
+    while (num > 0) {
+        int digit = num % 10;
         reverse = reverse * 10 + digit;
-        numDupl /= 10;
+        num /= 10;
     }
-
-    return (reverse * multiplier + num);
+    return reverse;
+}
+int concatReverse(int num){
+    int numDupl = num;
+    return (reverseNumber(num) * multiplierNumber(1, num) + num);
 
 }
 int main()
