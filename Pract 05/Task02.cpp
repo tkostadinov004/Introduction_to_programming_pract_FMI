@@ -15,12 +15,12 @@ bool isPrime(int num) {
     if (num <= 1) return false;
     int counter = 0;
 
-    for (int j = 1; j <= num; j++) {
+    for (int j = 2; j < num; j++) {
         if (num % j == 0) {
-            counter++;
+            return 0;
         }
     }
-    return (counter == 2);
+return 1;
 }
 
 //function to find the sum and check
