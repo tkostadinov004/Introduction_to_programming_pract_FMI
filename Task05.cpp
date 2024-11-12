@@ -1,54 +1,57 @@
 #include <iostream>
 
-int main() {
-    int a, b, c, d, e;
-
-    std::cin >> a >> b >> c >> d >> e;
-
-    bool isTrion = true;
-
-    if (!((a >= b) || (a <= b))) {
-        isTrion = false;
-    }
-
-    if (!((b >= a && b >= c) || (b <= a && b <= c))) {
-        isTrion = false;
-    }
-
-    if (!((c >= b && c >= d) || (c <= b && c <= d))) {
-        isTrion = false;
-    }
-
-    if (!((d >= c && d >= e) || (d <= c && d <= e))) {
-        isTrion = false;
-    }
-
-    if (!((e >= d) || (e <= d))) {
-        isTrion = false;
-    }
-
-    if (isTrion) {
-        std::cout << "yes";
-    }
-    else {
-        std::cout << "no";
-    }
-
-    //moje i po tozi nachin
-    /*if (a >= b || a <= b) {
-        if (b >= a && b >= c || b <= a && b <= c) {
-            if (c >= b && c >= d || c <= b && c <= d) {
-                if (d >= c && d >= e || d <= c && d <= e) {
-                    std::cout << "yes";
-                } else {
-                    std::cout << "no";
-                }
-            } else {
-                std::cout << "no";
-            }
-        } else {
-            std::cout << "no";
+bool isPalindrome(int arr[], int start, int end)
+{
+    while (start < end) 
+    {
+        if (arr[start] != arr[end]) 
+        {
+            return false;
         }
-    }*/
+        start++;
+        end--;
+    }
+    return true;
+}
 
+bool isConcatenationOfTwoPalindromes(int arr[], int n) 
+{
+    for (int i = 0; i < n - 1; i++)
+    {
+        if (isPalindrome(arr, 0, i) && isPalindrome(arr, i + 1, n - 1)) 
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+int main() {
+    int n;
+    
+    std::cout << "Enter arr lenght: ";
+    std::cin >> n;
+
+    if (n <= 0 || n > 256)
+    {
+        std::cout << "Invalid length!";
+        return 0;
+    }
+
+    int arr[256];
+    std::cout << "Enter arr: ";
+
+    for (int i = 0; i < n; i++)
+    {
+        std::cin >> arr[i];
+    }
+
+    if (isConcatenationOfTwoPalindromes(arr, n)) 
+    {
+        std::cout << "true";
+    }
+    else
+    {
+        std::cout << "false";
+    }
 }

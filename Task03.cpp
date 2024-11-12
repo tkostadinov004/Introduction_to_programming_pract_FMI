@@ -1,21 +1,38 @@
 #include <iostream>
 
-int main() {
-    char character;
+void reverseArray(int arr[], int n)
+{
+    for (int i = 0; i < n / 2; i++)
+    {
+        int temp = arr[i];
+        arr[i] = arr[n - i - 1];
+        arr[n - i - 1] = temp;
+    }
+}
 
-    std::cin >> character;
+int main()
+{
+    int n;
 
-    if (character >= 'a' && character <= 'z') {
-        std::cout << "malka bukva" << std::endl;
-    }
-    else if (character >= 'A' && character <= 'Z') {
-        std::cout << "glavna bukva" << std::endl;
-    }
-    else if (character >= '0' && character <= '9') {
-        std::cout << "cifra" << std::endl;
-    }
-    else {
-        std::cout << "drugo" << std::endl;
+    std::cin >> n;
+
+    if (n <= 0 || n > 100)
+    {
+        std::cout << "Invalid length!";
+        return 0;
     }
 
+    int arr[100];
+
+    for (int i = 0; i < n; i++)
+    {
+        std::cin >> arr[i];
+    }
+
+    reverseArray(arr, n);
+
+    for (int i = 0; i < n; i++) 
+    {
+        std::cout << arr[i] << " ";
+    }
 }
