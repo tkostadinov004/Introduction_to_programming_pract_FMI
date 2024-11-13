@@ -1,19 +1,26 @@
 #include <iostream>
-int removeHundredths(int a) {
-	int b = 0;
-	
-	b += (a / 1000) * 100;
-	b += (((a / 10) % 10)*10);
-	b += a % 10;
-	return b;
-}
-int main()
+
+unsigned removeHundreds(unsigned num)
 {
-	int n, m;
-	std::cin >> n >> m;
-	for (int i = n; i < m; i++) {
-		if (removeHundredths(i) % 11 == 0) {
+	unsigned thousands = num / 1000;
+	unsigned remaining = num % 100;
+	return thousands * 100 + remaining;
+}
+bool isDivisibleWithoutHundreds(unsigned num, unsigned divisor)
+{
+	return removeHundreds(num) % divisor == 0;
+}
+void printDivisibles(unsigned lowerBound, unsigned upperBound)
+{
+	for (size_t i = lowerBound; i <= upperBound; i++)
+	{
+		if (isDivisibleWithoutHundreds(i, 11))
+		{
 			std::cout << i << " ";
 		}
 	}
+}
+int main()
+{
+	
 }

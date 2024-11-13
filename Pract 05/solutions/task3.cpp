@@ -1,18 +1,23 @@
 #include <iostream>
-bool perfection(int n) {
-    int sum = 0;
-    for (int j = 1; j < n; j++) {
-        int a = n % j;
-        if (a == 0 && j != n) {
-            sum += j;
-            
-        }
-    }
-    return sum==n;
+
+unsigned getDivisorsSum(unsigned num)
+{
+	unsigned sum = 0;
+	for (size_t i = 1; i <= num / 2; i++)
+	{
+		if (num % i == 0)
+		{
+			sum += i;
+		}
+	}
+	return sum;
 }
+bool isPerfect(unsigned num)
+{
+	return getDivisorsSum(num) == num;
+}
+
 int main()
 {
-    int n;
-    std::cin >> n;
-    std::cout << (perfection(n) ? "true" : "false");
+	
 }

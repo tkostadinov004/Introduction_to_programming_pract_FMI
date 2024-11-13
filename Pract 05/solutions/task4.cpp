@@ -1,18 +1,20 @@
 #include <iostream>
-bool checkPalindrome(int number) {
-	int reverseNumber = 0, originalNumber;
-	originalNumber = number;
-	while (number > 0) {
-		int digit = number % 10;
-		reverseNumber = reverseNumber * 10 + digit;
-		number = number / 10;
+
+unsigned reverseNum(unsigned num)
+{
+	unsigned result = 0;
+	while (num > 0)
+	{
+		(result *= 10) += num % 10;
+		num /= 10;
 	}
-	return (reverseNumber == originalNumber);
-		
+	return result;
+}
+bool isPalindrome(unsigned num)
+{
+	return reverseNum(num) == num;
 }
 int main()
 {
-	int number;
-	std::cin >> number;
-	std::cout << (checkPalindrome(number) ? "true" : "false");
+	
 }

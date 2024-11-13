@@ -1,29 +1,44 @@
 #include <iostream>
-bool isPrime(int num) {
-    if (num < 2) return false;
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) return false;
-    }
-    return true;
+
+bool isDigitSumLessThan10(unsigned num)
+{
+	unsigned sum = 0;
+	while (num > 0)
+	{
+		sum += num % 10;
+		num /= 10;
+	}
+	return sum < 10;
 }
-int digitSum(int num) {
-    int sum = 0;
-    while (num > 0) {
-        sum += num % 10;
-        num /= 10;
-    }
-    return sum;
+bool isPrime(unsigned num)
+{
+	if (num < 2)
+	{
+		return false;
+	}
+	
+	unsigned root = sqrt(num);
+	for (size_t i = 2; i <= root; i++)
+	{
+		if (num % i == 0)
+		{
+			return false;
+		}
+	}
+	return true;
 }
-void print(int n) {
-    for (int i = 100; i <= n; i++) {
-        if (isPrime(i) && digitSum(i) < 10) {
-            std::cout << i << " ";
-        }
-    }
+void printNumbers(unsigned upperBound)
+{
+	for (size_t i = 100; i <= upperBound; i++)
+	{
+		if (isDigitSumLessThan10(i) && isPrime(i))
+		{
+			std::cout << i << " ";
+		}
+	}
 }
+
 int main()
 {
-	int n;
-	std::cin >>n;
-    print(n);
+	printNumbers(510);
 }
