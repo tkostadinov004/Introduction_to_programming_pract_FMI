@@ -17,7 +17,9 @@ int countInversions(int arr[], int currSize, int count) {
 
     return count;
 }
-
+int isSorted(int arr[], int currSize, int count) {
+    return countInversions(arr, currSize, 0) ? 1:0;
+}
 
 int main() {
     const unsigned int SIZE = 128;
@@ -30,6 +32,6 @@ int main() {
     }
 
     //exclude negative
-    int count = countInversions(arr, currSize, 0);
+    int count = isSorted(arr, currSize, 0);
     std::cout << std::boolalpha << !count;
 }
