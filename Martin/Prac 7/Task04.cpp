@@ -34,11 +34,11 @@ int main()
 {
 	int m = 0, n = 0, k = 0;
 
-	std::cout << "Enter m:";
+	std::cout << "Enter m: ";
 	std::cin >> m;
-	std::cout << "Enter n:";
+	std::cout << "Enter n: ";
 	std::cin >> n;
-	std::cout << "Enter k:";
+	std::cout << "Enter k: ";
 	std::cin >> k;
 
 	const int mLength = getLength(m);
