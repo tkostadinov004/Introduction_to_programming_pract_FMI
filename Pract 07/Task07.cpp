@@ -1,6 +1,6 @@
 #include <iostream>
 
-int getCountOfDigit(int digit, unsigned long long number) 
+int getCountOfDigit(int digit, unsigned long long number)
 {
 	int countOfDigit = 0;
 
@@ -16,23 +16,21 @@ int getCountOfDigit(int digit, unsigned long long number)
 
 bool arePermutations(unsigned long long firstNum, unsigned long long secondNum)
 {
-	bool areNumbersPermutations = true;
-
 	unsigned long long copyOfFirstNum = firstNum;
 
-	while (copyOfFirstNum > 0) 
+	while (copyOfFirstNum > 0)
 	{
 		int digit = copyOfFirstNum % 10;
 
 		if (getCountOfDigit(digit, firstNum) != getCountOfDigit(digit, secondNum))
 		{
-			areNumbersPermutations = false;
+			return false;
 		}
 
 		copyOfFirstNum /= 10;
 	}
 
-	return areNumbersPermutations;
+	return true;
 }
 
 int main() {
