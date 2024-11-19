@@ -1,54 +1,67 @@
 #include <iostream>
+#include <string>
 
-int countInversions(int arr[], int n)
+void calculateBullsAndCows(const std::string& secret, const std::string& guess, int& bulls, int& cows)
 {
-    int inversionCount = 0;
+    bulls = 0;
+    cows = 0;
 
-    for (int i = 0; i < n - 1; i++)
+    for (int i = 0; i < secret.size(); ++i)
     {
-        for (int j = i + 1; j < n; j++) 
+        if (guess[i] == secret[i]) 
         {
-            if (arr[i] > arr[j])
+            ++bulls;
+        }
+        else 
+        {
+            for (int j = 0; j < secret.size(); ++j)
             {
-                inversionCount++;
+                if (guess[i] == secret[j] && i != j)
+                {
+                    ++cows;
+                    break;
+                }
             }
         }
     }
-
-    return inversionCount;
-}
-
-bool isSorted(int arr[], int n)
-{
-    return countInversions(arr, n) == 0;
 }
 
 int main()
 {
-    int n;
-    std::cout << "vuvedete broq na elementite: ";
-    std::cin >> n;
+    int digits;
+    std::cout << "enter digits: ";
+    std::cin >> digits;
 
-    if (n <= 0 || n > 256) 
+    std::string secret;
+    std::cout << "enter a secret number: ";
+    std::cin >> secret;
+
+    if (secret.size() != digits) 
     {
-        std::cout << "Invalid length!";
-        return 0;
+        std::cout << "secret num trqbwa da ima " << digits << " cifri" << std::endl;
+        return 1;
     }
 
-    int arr[256];
-    std::cout << "vuvedete elementite: ";
-    
-    for (int i = 0; i < n; i++) 
-    {
-        std::cin >> arr[i];
-    }
+    std::string guess;
+    int bulls = 0, cows = 0;
 
-    if (isSorted(arr, n))
+    while (bulls != digits)
     {
-        std::cout << "true";
-    }
-    else 
-    {
-        std::cout << "false";
+        std::cout << "enter a number: ";
+        std::cin >> guess;
+
+        if (guess.size() != digits)
+        {
+            std::cout << "chisloto trqbwa da ima " << digits << " cifri" << std::endl;
+            continue;
+        }
+
+        calculateBullsAndCows(secret, guess, bulls, cows);
+        std::cout << bulls << " bull(s), " << cows << " cow(s)" << std::endl;
+
+        if (bulls == digits)
+        {
+            std::cout << "POZNA... +10% aura" << std::endl;
+        }
     }
 }

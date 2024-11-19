@@ -1,68 +1,34 @@
 #include <iostream>
 
-void factorize(int n)
+int gcd(int a, int b)
 {
-    int primes[100];
-    int powers[100];
-    int index = 0;
-
-    int count = 0;
-    while (n % 2 == 0)
+    while (b != 0) 
     {
-        count++;
-        n /= 2;
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
-    if (count > 0)
-    {
-        primes[index] = 2;
-        powers[index] = count;
-        index++;
-    }
+    return a;
+}
 
-    for (int i = 3; i * i <= n; i += 2) 
-    {
-        count = 0;
-        while (n % i == 0) 
-        {
-            count++;
-            n /= i;
-        }
-        if (count > 0)
-        {
-            primes[index] = i;
-            powers[index] = count;
-            index++;
-        }
-    }
+int lcm(int a, int b)
+{
+    return (a / gcd(a, b)) * b;
+}
 
-    if (n > 2)
-    {
-        primes[index] = n;
-        powers[index] = 1;
-        index++;
-    }
-
-
-    for (int i = index - 1; i >= 0; i--)
-    {
-        std::cout << primes[i];
-        if (powers[i] > 1) 
-        {
-            std::cout << "^" << powers[i];
-        }
-        if (i > 0)
-        {
-            std::cout << " * ";
-        }
-    }
+int lcmOfFour(int a, int b, int c, int d) 
+{
+    int lcmAB = lcm(a, b);
+    int lcmABC = lcm(lcmAB, c);
+    return lcm(lcmABC, d);
 }
 
 int main() 
 {
-    int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
+    int a, b, c, d;
+    std::cout << "vuvedete 4 chisla: ";
+    std::cin >> a >> b >> c >> d;
 
-    std::cout << "Factorization of " << num << ": ";
-    factorize(num);
+    int result = lcmOfFour(a, b, c, d);
+    std::cout << "naj malkoto obshto kratno e: " << result;s
 }

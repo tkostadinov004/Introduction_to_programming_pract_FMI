@@ -1,35 +1,29 @@
 #include <iostream>
 
-//255
-void fact(int n)
+int gcd(int a, int b)
 {
-	int del = 2;
-	while (n != 1)
-	{
-		int count = 0;
-
-		if (n % del == 0)
-		{
-
-			while (n % del == 0)
-			{
-				n = n / del;
-				count++;
-			}
-
-			if (count > 0)
-			{
-				std::cout << del << " ^ " << count << " * ";
-				count = 0;
-			}
-		}
-		del++;
-	}
+    while (b != 0) 
+    {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
 
-int main()
+int gcdOfFour(int a, int b, int c, int d)
 {
-	int num = 1;
-	std::cin >> num;
-	fact(num);
+    int gcdAB = gcd(a, b);
+    int gcdABC = gcd(gcdAB, c);
+    return gcd(gcdABC, d);
+}
+
+int main() 
+{
+    int a, b, c, d;
+    std::cout << "vuvedete 4 chisla: ";
+    std::cin >> a >> b >> c >> d;
+
+    int result = gcdOfFour(a, b, c, d);
+    std::cout << "naj golemiqt obsht delitel e: " << result;
 }

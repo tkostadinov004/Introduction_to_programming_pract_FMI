@@ -1,44 +1,70 @@
 #include <iostream>
 
-bool isPalindrome(int arr[], int n)
+
+int countDigits(int num)
 {
-    for (int i = 0; i < n / 2; i++)
+    int count = 0;
+    while (num != 0)
     {
-        if (arr[i] != arr[n - i - 1])
-        {
-            return false;
-        }
+        num /= 10;
+        ++count;
     }
-    return true;
+    return count;
+}
+
+int getKthDigitFromLeft(int num, int k)
+{
+    int totalDigits = countDigits(num);
+    if (k > totalDigits) 
+    {
+        return 0;
+    }
+    int divisor = 1;
+    for (int i = 1; i <= totalDigits - k; ++i)
+    {
+        divisor *= 10;
+    }
+    return (num / divisor) % 10;
+}
+
+int replaceKthDigitFromLeft(int num, int k, int newDigit)
+{
+    int totalDigits = countDigits(num);
+    if (k > totalDigits)
+    {
+        return num;
+    }
+    int divisor = 1;
+
+    for (int i = 1; i <= totalDigits - k; ++i) 
+    {
+        divisor *= 10;
+    }
+    int currentDigit = (num / divisor) % 10;
+    return num - currentDigit * divisor + newDigit * divisor;
+}
+
+void swapKthDigitsFromLeft(int m, int n, int k)
+{
+    int digitM = getKthDigitFromLeft(m, k);
+    int digitN = getKthDigitFromLeft(n, k);
+
+    m = replaceKthDigitFromLeft(m, k, digitN);
+    n = replaceKthDigitFromLeft(n, k, digitM);
+
+    std::cout << m << " " << n;
 }
 
 int main()
 {
-    int n;
+    int m, n, k;
+    std::cout << "vuvedete dwe chisla i index: ";
+    std::cin >> m >> n >> k;
 
-    std::cout << "lenght: ";
-    std::cin >> n;
-
-    if (n <= 0 || n > 512)
-    {
-        std::cout << "Invalid length!";
-        return 0;
+    if (k <= 0) {
+        std::cout << "indeksut trqbwa da e polojitelno chislo";
     }
-
-    int arr[512];
-    std::cout << "enter arr: ";
-
-    for (int i = 0; i < n; i++)
-    {
-        std::cin >> arr[i];
-    }
-
-    if (isPalindrome(arr, n))
-    {
-        std::cout << "true";
-    }
-    else 
-    {
-        std::cout << "false";
+    else {
+        swapKthDigitsFromLeft(m, n, k);
     }
 }

@@ -1,44 +1,45 @@
 #include <iostream>
 
-int countInversions(int arr[], int n)
+int sumOfDigits(int num)
 {
-    int inversionCount = 0;
-
-    for (int i = 0; i < n - 1; i++) 
+    int sum = 0;
+    while (num > 0) 
     {
-        for (int j = i + 1; j < n; j++)
+        sum += num % 10;
+        num /= 10;
+    }
+    return sum;
+}
+
+int findMaxDigitSum(int count)
+{
+    int maxSum = 0;
+    int maxNumber = 0;
+
+    for (int i = 0; i < count; ++i)
+    {
+        int num;
+        std::cin >> num;
+
+        int currentSum = sumOfDigits(num);
+        if (currentSum > maxSum)
         {
-            if (arr[i] > arr[j])
-            {
-                inversionCount++;
-            }
+            maxSum = currentSum;
+            maxNumber = num;
         }
     }
 
-    return inversionCount;
+    return maxNumber;
 }
 
 int main() 
 {
     int n;
-
-    std::cout << "vuvedete broq na el: ";
+    std::cout << "vuvedete broq na chislata: ";
     std::cin >> n;
 
-    if (n <= 0 || n > 256) 
-    {
-        std::cout << "Invalid length!";
-        return 0;
-    }
+    std::cout << "vuvedete chislata: ";
+    int result = findMaxDigitSum(n);
 
-    int arr[256];
-    std::cout << "vuvedete elementite: ";
-
-    for (int i = 0; i < n; i++)
-    {
-        std::cin >> arr[i];
-    }
-
-    int result = countInversions(arr, n);
     std::cout << result;
 }

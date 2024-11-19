@@ -1,57 +1,38 @@
 #include <iostream>
 
-bool isPalindrome(int arr[], int start, int end)
+int extractLastKDigits(int num, int k)
 {
-    while (start < end) 
+    int power = 1;
+    for (int i = 0; i < k; ++i)
     {
-        if (arr[start] != arr[end]) 
-        {
-            return false;
-        }
-        start++;
-        end--;
+        power *= 10;
     }
-    return true;
+    return num % power;
 }
 
-bool isConcatenationOfTwoPalindromes(int arr[], int n) 
+int removeLastKDigits(int num, int k) 
 {
-    for (int i = 0; i < n - 1; i++)
+    int power = 1;
+    for (int i = 0; i < k; ++i) 
     {
-        if (isPalindrome(arr, 0, i) && isPalindrome(arr, i + 1, n - 1)) 
-        {
-            return true;
-        }
+        power *= 10;
     }
-    return false;
+    return num / power;
 }
 
-int main() {
-    int n;
-    
-    std::cout << "Enter arr lenght: ";
-    std::cin >> n;
+int main() 
+{
+    int a, b, k;
+    std::cout << "vuvedete 3 chisla (a, b, k): ";
+    std::cin >> a >> b >> k;
 
-    if (n <= 0 || n > 256)
+    if (k <= 0)
     {
-        std::cout << "Invalid length!";
+        std::cout << "k trqbwa da e polojitelno";
         return 0;
     }
 
-    int arr[256];
-    std::cout << "Enter arr: ";
+    int cuta = removeLastKDigits(a, k);
 
-    for (int i = 0; i < n; i++)
-    {
-        std::cin >> arr[i];
-    }
-
-    if (isConcatenationOfTwoPalindromes(arr, n)) 
-    {
-        std::cout << "true";
-    }
-    else
-    {
-        std::cout << "false";
-    }
+    std::cout << cuta << " " << extractLastKDigits(a, k) << b;
 }

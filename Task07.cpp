@@ -1,52 +1,52 @@
 #include <iostream>
 
-int removeNegativeElements(int arr[], int n)
+bool compareDigits(int a, int b) 
 {
-    int newSize = 0;
-
-    for (int i = 0; i < n; i++)
+    int countA = 0, countB = 0;
+    for (int digit = 0; digit <= 9; ++digit)
     {
-        if (arr[i] >= 0)
+        int tempA = a, tempB = b;
+        int countDigitA = 0, countDigitB = 0;
+
+        while (tempA > 0)
         {
-            arr[newSize] = arr[i];
-            newSize++;
+            if (tempA % 10 == digit)
+            {
+                ++countDigitA;
+            }
+            tempA /= 10;
+        }
+
+        while (tempB > 0)
+        {
+            if (tempB % 10 == digit)
+            {
+                ++countDigitB;
+            }
+            tempB /= 10;
+        }
+
+        if (countDigitA != countDigitB) 
+        {
+            return false;
         }
     }
-    return newSize;
-}
 
-void printArray(int arr[], int n)
-{
-    for (int i = 0; i < n; i++) 
-    {
-        std::cout << arr[i] << " ";
-    }
+    return true;
 }
 
 int main() 
 {
-    int n;
+    int a, b;
+    std::cout << "vuvedete dwe chisla: ";
+    std::cin >> a >> b;
 
-    std::cout << "vuvedete broq na elementite: ";
-    std::cin >> n;
-
-    if (n <= 0 || n > 128) 
+    if (compareDigits(a, b)) 
     {
-        std::cout << "Invalid length!";
-        return 0;
+        std::cout << "true";
     }
-
-    int arr[128];
-    std::cout << "vuvedete elementite: ";
-    
-    for (int i = 0; i < n; i++)
+    else 
     {
-        std::cin >> arr[i];
+        std::cout << "false";
     }
-
-    int newSize = removeNegativeElements(arr, n);
-
-    std::cout << newSize << std::endl;
-
-    printArray(arr, newSize);
 }

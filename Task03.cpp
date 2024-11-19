@@ -1,38 +1,39 @@
 #include <iostream>
 
-void reverseArray(int arr[], int n)
+int gcd(int a, int b) 
 {
-    for (int i = 0; i < n / 2; i++)
+    while (b != 0) 
     {
-        int temp = arr[i];
-        arr[i] = arr[n - i - 1];
-        arr[n - i - 1] = temp;
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
+    return a;
+}
+
+
+void sukr(int numerator, int denominator) 
+{
+    int divisor = gcd(numerator, denominator);
+    numerator /= divisor;
+    denominator /= divisor;
+
+    std::cout << numerator << "/" << denominator;
 }
 
 int main()
 {
-    int n;
+    int numerator, denominator;
+    std::cout << "vuvedete chislitel i znamenatel: ";
+    std::cin >> numerator >> denominator;
 
-    std::cin >> n;
-
-    if (n <= 0 || n > 100)
+    if (denominator == 0)
     {
-        std::cout << "Invalid length!";
-        return 0;
+        std::cout << "znamenatelqt ne moje da bude 0";
     }
-
-    int arr[100];
-
-    for (int i = 0; i < n; i++)
+    else
     {
-        std::cin >> arr[i];
-    }
-
-    reverseArray(arr, n);
-
-    for (int i = 0; i < n; i++) 
-    {
-        std::cout << arr[i] << " ";
+        sukr(numerator, denominator);
     }
 }
+
