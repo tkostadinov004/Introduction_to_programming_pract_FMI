@@ -1,13 +1,10 @@
 #include <iostream>
 
-void sieveOut(bool sieve[], unsigned upperBound, int current)
+void markNumsAsNotPrime(bool sieve[], unsigned upperBound, int current)
 {
-	for (size_t i = current + 1; i <= upperBound; i++)
+	for (size_t i = current * 2; i <= upperBound; i += current)
 	{
-		if (i % current == 0) 
-		{
-			sieve[i] = true;
-		}
+		sieve[i] = true;
 	}
 }
 void eratosthenesSieve(unsigned upperBound)
@@ -19,7 +16,7 @@ void eratosthenesSieve(unsigned upperBound)
 		if (!sieve[i])
 		{
 			std::cout << i << " ";
-			sieveOut(sieve, upperBound, i);
+			markNumsAsNotPrime(sieve, upperBound, i);
 		}
 	}
 }
