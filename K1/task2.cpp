@@ -10,6 +10,7 @@ size_t getDivisors(unsigned divisors[])
 		divisors[divisorsCount++] = currentDivisor;
 		std::cin >> currentDivisor;
 	}
+	
 	return divisorsCount;
 }
 bool isNotDivisibleByAny(unsigned number, const unsigned divisors[], size_t divisorsCount)
@@ -21,6 +22,7 @@ bool isNotDivisibleByAny(unsigned number, const unsigned divisors[], size_t divi
 			return false;
 		}
 	}
+	
 	return true;
 }
 void printValidNumbers(unsigned upperBound, const unsigned divisors[], size_t divisorsCount)
