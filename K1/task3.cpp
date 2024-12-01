@@ -15,6 +15,7 @@ size_t countDigitOccurrences(unsigned digit, unsigned num)
 		}
 		num /= 10;
 	}
+	
 	return count;
 }
 unsigned long long concatDigitAtBack(unsigned long long num, unsigned digit, size_t count)
@@ -23,6 +24,7 @@ unsigned long long concatDigitAtBack(unsigned long long num, unsigned digit, siz
 	{
 		(num *= 10) += digit;
 	}
+	
 	return num;
 }
 unsigned long long sortConcat(unsigned a, unsigned b)
@@ -34,6 +36,7 @@ unsigned long long sortConcat(unsigned a, unsigned b)
 		size_t occurrencesInB = countDigitOccurrences(i, b);
 		result = concatDigitAtBack(result, i, occurrencesInA + occurrencesInB);
 	}
+	
 	return result;
 }
 int main()
