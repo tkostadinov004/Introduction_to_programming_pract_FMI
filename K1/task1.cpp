@@ -9,6 +9,7 @@ unsigned fromSystemToDecimal(unsigned num, unsigned base)
         num /= 10;
         mult *= base;
     }
+    
     return result;
 }
 void reverse(int arr[], size_t size)
@@ -33,13 +34,16 @@ size_t fromDecimalToSystem(unsigned num, int output[], unsigned outputBase)
         output[resultSize++] = num % outputBase;
         num /= outputBase;
     }
+    
     reverse(output, resultSize);
+    
     return resultSize;
 }
 size_t fromSystemToSystem(unsigned input, unsigned inputSystemBase, int output[], unsigned outputSystemBase)
 {
     unsigned systemToDecimal = fromSystemToDecimal(input, inputSystemBase);
     size_t resultSize = fromDecimalToSystem(systemToDecimal, output, outputSystemBase);
+    
     return resultSize;
 }
 void print(const int arr[], size_t size)
