@@ -2,19 +2,23 @@
  
 constexpr unsigned short MAX_ROWS_AND_COLUMNS = 128;
  
-void getMatrix(unsigned int matrix[][MAX_ROWS_AND_COLUMNS], size_t rows, size_t columns) {
- 
-    for (size_t i = 0; i < columns; i++) {
-        for (size_t j = 0; j < rows; j++) {
+void getMatrix(unsigned int matrix[][MAX_ROWS_AND_COLUMNS], size_t rows, size_t columns)
+{
+    for (size_t i = 0; i < columns; i++) 
+    {
+        for (size_t j = 0; j < rows; j++) 
+        {
             std::cin >> matrix[j][i];
         }
     }
 }
  
-void printMatrix(const unsigned int matrix[][MAX_ROWS_AND_COLUMNS], size_t rows, size_t columns) {
- 
-    for (size_t i = 0; i < rows; i++) {
-        for (size_t j = 0; j < columns; j++) {
+void printMatrix(const unsigned int matrix[][MAX_ROWS_AND_COLUMNS], size_t rows, size_t columns)
+ {
+    for (size_t i = 0; i < rows; i++) 
+    {
+        for (size_t j = 0; j < columns; j++)
+        {
             std::cout << matrix[i][j] << " ";
         }
         std::cout << "\n";
