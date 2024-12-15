@@ -26,6 +26,7 @@ char capitalize(char c)
 	{
 		return -1;
 	}
+	
 	return c - 'a' + 'A';
 }
 char makeLower(char c)
@@ -34,6 +35,7 @@ char makeLower(char c)
 	{
 		return -1;
 	}
+	
 	return c - 'A' + 'a';
 }
 int parseInt(char c)
@@ -42,6 +44,7 @@ int parseInt(char c)
 	{
 		return -1;
 	}
+	
 	return c - '0';
 }
 char toChar(int n)
@@ -50,6 +53,7 @@ char toChar(int n)
 	{
 		return n + '0';
 	}
+	
 	return 0;
 }
 int myLog(int number, int base)
@@ -60,30 +64,36 @@ int myLog(int number, int base)
 	}
 
 	int log = 0;
+	
 	while (number >= base)
 	{
 		number /= base;
 		log++;
 	}
+	
 	return log;
 }
 int myPow(int number, int power)
 {
 	int result = 1;
+	
 	for (size_t i = 0; i < power; i++)
 	{
 		result *= number;
 	}
+	
 	return result;
 }
 int myCeil(double number)
 {
 	int wholePart = number;
+	
 	return number > wholePart ? wholePart + 1 : wholePart;
 }
 int myFloor(double number)
 {
 	int wholePart = number;
+	
 	return number < wholePart ? wholePart - 1 : wholePart;
 }
 int myAbs(int number)
