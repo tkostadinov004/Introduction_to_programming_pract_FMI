@@ -22,7 +22,7 @@ int* generateSubset(unsigned characteristicVectorMask, const int* arr, size_t si
 
 	size_t subsetSize = getSubsetSize(characteristicVectorMask);
 
-	// Всеки масив, представящ подмножество е от вида <size> <e1> <e2> ... <en>, където e1, e2, ..., en са елементите, съдържащи се в подмножеството
+	// Всеки масив, представящ подмножество, е от вида <size> <e1> <e2> ... <en>, където e1, e2, ..., en са елементите, съдържащи се в подмножеството
 	// Този начин на съхранение е нужен, защото при принтирането на дадено подмножество се нуждаем от броя елементи в него 
 	int* subset = new int[subsetSize + 1];
 	subset[0] = subsetSize;
