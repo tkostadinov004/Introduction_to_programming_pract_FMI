@@ -7,7 +7,7 @@ void stringCopy(const char* first, char* second)
 		return;
 	}
 
-	while (*second)
+	while (*second && *first)
 	{
 		*second = *first;
 		first++;

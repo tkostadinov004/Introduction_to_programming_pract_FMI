@@ -12,31 +12,44 @@ unsigned int getStringLength(const char* myString)
 	return length;
 }
 
+bool isBeginningWithTheString(const char*& firstString, const char* wantedString)
+{
+	int wantedLength = getStringLength(wantedString);
+
+	while (wantedLength > 0)
+	{
+		if (*firstString != *wantedString)
+		{
+			return false;
+		}
+		firstString++;
+		wantedString++;
+		wantedLength--;
+	}
+	return true;
+}
+
 bool isFirstInSecond(const char* first, const char* second)
 {
 	if (!first || !second)
 		return false;
 
-	while (*first != *second)
-		first++;
 
-	int secondLength = getStringLength(second);
+	while (*first)
+	{
+		if (isBeginningWithTheString(first, second))
+			return true;
 
-	for (int i = 1; i <= secondLength; i++) {
-		if (*first != *second) {
-			return false;
-		}
 		first++;
-		second++;
 	}
 
-	return true;
+	return false;
 }
 
 int main()
 {
-	const char* firstString = "cppprogramming";
-	const char* secondString = "rog";
+	const char* firstString = "sabssabcd";
+	const char* secondString = "abc";
 
 	std::cout << std::boolalpha << isFirstInSecond(firstString, secondString);
 }

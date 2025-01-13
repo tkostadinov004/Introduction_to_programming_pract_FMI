@@ -1,20 +1,20 @@
 #include <iostream>
 
-int parseStringToNum(const char* myString)
+int parseStringToNum(const char* stringToParse)
 {
 	int number = 0;
 	bool check = false;
 
-	if (*myString == '-') {
+	if (*stringToParse == '-') {
 		check = true;
-		myString++;
+		stringToParse++;
 	}
 
-	while (*myString)
+	while (*stringToParse)
 	{
 		number *= 10;
-		number += (*myString - '0');
-		myString++;
+		number += (*stringToParse - '0');
+		stringToParse++;
 	}
 
 	return check ? number * (-1) : number;

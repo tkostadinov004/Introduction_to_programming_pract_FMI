@@ -1,9 +1,5 @@
 #include <iostream>
 
-bool isSpace(char ch) {
-	return ch == ' ';
-}
-
 bool isUppercase(char ch) {
 	return ch >= 'A' && ch <= 'Z';
 }
@@ -26,7 +22,7 @@ unsigned int countWords(const char* myString)
 
 	while (*myString)
 	{
-		if (isSpace(*myString) && isLetter(*(myString + 1)))
+		if (isLetter(*myString) && !isLetter(*(myString + 1)))
 		{
 			countWords++;
 		}

@@ -5,7 +5,7 @@ int compareStrings(const char* first, const char* second)
 	if (!first || !second)
 		return 0;
 
-	while ((*first == *second) && (*first && *second))
+	while ((*first && *second) && (*first == *second))
 	{
 		first++;
 		second++;
