@@ -1,3 +1,5 @@
+### Примерни решения на контролно 2
+
 **Задача 1** - задачата е вече разглеждана на практикуми, под формата на 
 [примерна задача от практикум 12](https://github.com/tkostadinov004/Introduction_to_programming_pract_FMI/blob/main/Pract%2012/generateSubsets_print.cpp).
 Има два подхода за намиране на малките букви:
