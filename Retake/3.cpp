@@ -40,7 +40,7 @@ size_t myStrLen(const char* str)
 
 bool isPalindrome(const char* str, size_t left, size_t right)
 {
-	if (left == right)
+	if (left >= right)
 	{
 		return true;
 	}
@@ -74,4 +74,5 @@ bool isPalindrome(const char* str)
 int main()
 {
 	std::cout << isPalindrome("Was it a car or a cat I saw?");
+
 }
